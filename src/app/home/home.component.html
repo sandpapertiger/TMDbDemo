@@ -1,0 +1,61 @@
+<div class="product">
+    <div class="container">
+
+    <div class="col-xs-2 col-sm-3">
+        <section class="sky-form">
+                <h4 class="cate">Minimum Rating</h4>
+                <br>
+                <div class="row">
+                    <div class="col col-4">
+                        <select (change)="filterbyRating($event.target.value)">
+                            <option value="3">3</option>
+                            <option *ngFor="let rating of ratings" value="{{ rating }}">
+                            {{rating}}
+                            </option>
+                        </select>
+                        <label>&nbsp;Rating: </label>
+                    </div>
+                </div>
+                <br>
+
+                <h4 class="cate">Categories</h4>
+                <div class="row">
+                    <div class="col col-4">
+                        <span *ngFor="let genre of genres;">
+                            <label class="checkbox">
+                                <input type="checkbox" value="{{genre.id}}" (change)="updateByGenres($event)" />
+                                <i></i>{{ genre.name }}
+                            </label>
+                        </span>
+                    </div>
+                </div>
+            </section>
+    </div>
+
+    <div class="col-xs-10, col-sm-9">
+        <div class="mid-popular">
+            <div class="col-md-4 item-grid1 simpleCart_shelfItem" *ngFor="let result of results;">
+                <div class="mid-pop">
+                    <div class="pro-img">
+                        <img src="https://image.tmdb.org/t/p/w400/{{result.poster_path}}" class="img-responsive" alt="">
+                    </div>
+                    <div class="mid-1">
+                    <div class="women">
+                    <div class="product-top">
+                        <h6>{{ result.title | slice:0:25 }}</h6>
+                        </div>
+                        <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+
+    </div>
+</div>
+
+
+
